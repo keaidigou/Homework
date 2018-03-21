@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    FILE*fp=NULL;
+    char filename[25];
+    char ch;
+    printf("輸入你要保存到的文件的名稱：\n");
+    gets(filename);
+    if((fp=fopen(filename,"w"))==NULL)
+    {
+        printf("error: cannot open file!\n");
+        exit(0);
+    }
+    printf("現在你可以輸入你要保存的一些字符，以#結束：\n");
+    getchar();
+    while((ch=getchar())!='#'){
+        fputc(ch,fp);
+    }
+    fclose(fp);
+    system("pause");
+    return 0;
+}
+
+
+
+// 20180320
