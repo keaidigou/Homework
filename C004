@@ -1,0 +1,123 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void caizi(void)
+{
+    int n;
+    char begin;
+    int count = 1;
+    srand((int)time(NULL));
+    int m = (rand() % 100) + 1;
+    puts("遊戲開始，請輸入數字:");
+    while (1)
+    {
+        scanf("%d", &n);
+        if (n == m)
+        {
+            printf("猜中了，使用了 %d 次！\n", count);
+            if (count == 1)
+            {
+                printf("Good Job\n");
+                getchar();
+                printf("還要繼續嗎？Y/N \n");
+                scanf("%c", &begin);
+                if (begin == 'Y' || begin == 'y')      //重複玩的循環
+                {
+                    caizi();
+                }
+                else
+                {
+                    printf("謝謝!\n");
+                }
+            }
+            else if (count <= 5)
+            {
+                printf("很棒\n");
+                getchar();
+                printf("挑戰更高級？Y/N \n");
+                scanf("%c", &begin);
+                if (begin == 'Y' || begin == 'y')
+                {
+                    caizi();
+                }
+                else
+                {
+                    printf("謝謝!\n");
+                }
+            }
+            else if (count <= 10)
+            {
+                printf("很棒\n");
+                getchar();
+                printf("挑戰更高級？Y/N \n");
+                scanf("%c", &begin);
+                if (begin == 'Y' || begin == 'y')
+                {
+                    caizi();
+                }
+                else
+                {
+                    printf("謝謝!\n");
+                }
+            }
+            else if (count <= 15)
+            {
+                printf("很棒\n");
+                getchar();
+                printf("挑戰更高級？Y/N \n");
+                scanf("%c", &begin);
+                if (begin == 'Y' || begin == 'y')
+                {
+                    caizi();
+                }
+                else
+                {
+                    printf("謝謝!\n");
+                }
+            }
+            else
+            {
+                getchar();
+                printf("你的技術有待提高，是否重玩？ Y/N\n");
+                scanf("%c",&begin);
+                if (begin == 'Y' || begin == 'y')
+                {
+                    caizi();
+                }
+                else
+                {
+                    printf("謝謝!\n");
+                }
+            }
+            break;
+        }
+        else if (n < m)
+        {
+            puts("太小了!");
+            puts("重新輸入:");
+        }
+        else
+        {
+            puts("太大了!");
+            puts("重新輸入:");
+        }
+        count++;//計數器
+        
+        
+    }
+}
+
+
+int main(void)
+{
+    
+    caizi();
+    system("pause");
+    return 0;
+}
+
+
+
+
+20180320
